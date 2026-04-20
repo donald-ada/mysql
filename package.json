@@ -1,6 +1,6 @@
 {
   "name": "@longlonga/mysql",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "MCP server for MySQL database interaction",
   "type": "module",
   "main": "dist/index.js",
