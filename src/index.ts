@@ -37,7 +37,7 @@ if (!MYSQL_HOST || !MYSQL_USER || !MYSQL_PASSWORD) {
   ]
     .filter(Boolean)
     .join(", ");
-  console.error(`[mysql-mcp] Error: Missing required environment variables: ${missing}`);
+  console.error(`[mysql] Error: Missing required environment variables: ${missing}`);
   process.exit(1);
 }
 
@@ -144,7 +144,7 @@ const DatabaseParamSchema = z
 // ─── MCP Server ───────────────────────────────────────────────────────────────
 
 const server = new McpServer({
-  name: "mysql-mcp-server",
+  name: "mysql",
   version: "1.0.0",
 });
 
@@ -654,16 +654,16 @@ async function main(): Promise<void> {
   try {
     await pool.query("SELECT 1");
     console.error(
-      `[mysql-mcp] Connected to MySQL at ${MYSQL_HOST}:${process.env.MYSQL_PORT || 3306}`
+      `[mysql] Connected to MySQL at ${MYSQL_HOST}:${process.env.MYSQL_PORT || 3306}`
     );
   } catch (error) {
-    console.error("[mysql-mcp] WARNING: Could not connect to MySQL on startup:", formatError(error));
-    console.error("[mysql-mcp] Server will start anyway — check MYSQL_HOST/MYSQL_PASSWORD env vars.");
+    console.error("[mysql] WARNING: Could not connect to MySQL on startup:", formatError(error));
+    console.error("[mysql] Server will start anyway — check MYSQL_HOST/MYSQL_PASSWORD env vars.");
   }
 
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("[mysql-mcp] MCP server running via stdio");
+  console.error("[mysql] MCP server running via stdio");
 }
 
 main().catch((error) => {

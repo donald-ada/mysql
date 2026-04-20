@@ -1,4 +1,4 @@
-# @longlonga/mysql-mcp-server
+# @longlonga/mysql
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server for interacting with MySQL databases. Provides tools for querying, inspecting, and modifying MySQL databases directly from Claude.
 
@@ -13,7 +13,7 @@ claude mcp add --scope user mysql \
   -e MYSQL_USER=your-user \
   -e MYSQL_PASSWORD=your-password \
   -e MYSQL_DATABASE=your-database \
-  -- npx -y @longlonga/mysql-mcp-server
+  -- npx -y @longlonga/mysql
 ```
 
 ### Via claude_desktop_config.json
@@ -23,7 +23,7 @@ claude mcp add --scope user mysql \
   "mcpServers": {
     "mysql": {
       "command": "npx",
-      "args": ["-y", "@longlonga/mysql-mcp-server"],
+      "args": ["-y", "@longlonga/mysql"],
       "env": {
         "MYSQL_HOST": "your-host",
         "MYSQL_PORT": "3306",
