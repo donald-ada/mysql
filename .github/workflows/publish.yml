@@ -20,7 +20,7 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
 
+      - run: npm install -g npm@latest
       - run: npm ci
       - run: npm run build --if-present
-      - run: npm config delete //registry.npmjs.org/:_authToken
       - run: npm publish --provenance --access public
